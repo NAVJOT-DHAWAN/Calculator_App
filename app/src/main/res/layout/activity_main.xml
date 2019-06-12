@@ -65,6 +65,9 @@
         android:id="@+id/operation_result_text_view"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+        android:layout_marginTop="@dimen/activity_vertical_margin"
+        android:textSize="30dp"
+        android:textColor="#986423"
+        android:textStyle="bold"/>
 
 </LinearLayout>
