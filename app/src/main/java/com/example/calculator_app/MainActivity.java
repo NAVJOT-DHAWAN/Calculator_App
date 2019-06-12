@@ -2,6 +2,7 @@ package com.example.calculator_app;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
@@ -64,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
                 result = getString(R.string.computationError);
                 break;
         }
+        resultText.setText(result);
     }
 
     public void onSub(View view) {
@@ -78,6 +80,19 @@ public class MainActivity extends AppCompatActivity {
     public void onMul(View view) {
         compute(Calculator.Operator.MUL);
 
+    }
+
+    private static Double getOperand(EditText operandEditText) {
+        String operandText = getOperandText(operandEditText);
+        return Double.valueOf(operandText);
+    }
+
+    private static String getOperandText(EditText text){
+        String operandText = text.getText().toString();
+        if (TextUtils.isEmpty(operandText)) {
+            throw new NumberFormatException("Operand cannot be empty!");
+        }
+        return operandText;
     }
 
 
